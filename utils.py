@@ -17,15 +17,16 @@ def init_weights(modules):
             torch.nn.init.xavier_normal(m.weight.data)
             m.bias.data.zero_()
 
-        if isinstance(m, GRUCell):
-            weights = [m.W_ir, m.W_hr, m.W_iz, m.W_hz, m.W_in, m.W_hn, ]
-            biases = [m.b_ir, m.b_hr, m.b_iz, m.b_hz, m.b_in, m.b_hn, ]
+        if isinstance(m, torch.nn.GRU):
+            #weights = [m.W_ir, m.W_hr, m.W_iz, m.W_hz, m.W_in, m.W_hn, ]
+            #biases = [m.b_ir, m.b_hr, m.b_iz, m.b_hz, m.b_in, m.b_hn, ]
 
             init_range = 0.01
-            for w in weights:
-                w.data.uniform_(-init_range, init_range)
-            for b in biases:
-                b.data.zero_()
+            for w in m._all_weights:
+                if 'weight' in w:
+                    w.data.uniform_(-init_range, init_range)
+                elif 'bias' in w:
+                    w.data.zero_()
 
 
 def argmax(inputs, dim=-1):
