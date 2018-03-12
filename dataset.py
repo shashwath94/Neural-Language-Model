@@ -86,7 +86,7 @@ class LanguageModelDataset(torch.utils.data.Dataset):
         return self.nb_sentences
 
 
-class TurmpSpeechesDataset(LanguageModelDataset):
+class TrumpSpeechesDataset(LanguageModelDataset):
     def __init__(self, filename, *args, **kwargs):
         sentences = self._load_file(filename)
         super().__init__(sentences, *args, **kwargs)
@@ -111,5 +111,5 @@ class TurmpSpeechesDataset(LanguageModelDataset):
 
                 #print(processed_line)
                 tweets.append(processed_line)
-        
+
         return tweets
