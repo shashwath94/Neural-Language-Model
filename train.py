@@ -8,7 +8,6 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 
 from dataset import TrumpSpeechesDataset
-from gru import GRUCell
 from utils import init_weights, argmax, cuda, variable, get_sequence_from_indices
 
 def repackage_hidden(h):
