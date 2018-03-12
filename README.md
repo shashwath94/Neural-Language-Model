@@ -1,4 +1,4 @@
-# Neural-Language-Model
+# Neural-Language-Model (WIP)
 Pytorch implementation of a simple GRU language model trained on Donald Trump's tweets. 
  
 Dataset - 30649 Trump's tweets from @realDonaldTrump obtained from [here](http://trumptwitterarchive.com/)
